@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sand Plotter — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">electronics · mechanics · software</div>
+    <h1>Sand plotter</h1>
+    <p class="lead">A CNC-based sand plotter that draws geometric and algorithmic patterns by dragging a magnet beneath a 3D-printed table. Controlled entirely from an Android tablet via a custom Flutter app.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>How it works</h2>
+
+    <div class="clearfix">
+      <img src="../images/sand_plotter.jpg" alt="Sand plotter" class="float-right">
+      <p>The sand plotter works by moving a permanent magnet along two axes underneath a flat 3D-printed surface covered in fine sand. The magnet stays hidden below the table and drags a metal ball through the sand, leaving behind clean and precise traces.</p>
+      <p>Two stepper motors drive the X and Y axes using a system of gears and rails. This gives the machine enough precision to handle very detailed patterns. An <strong>ESP32 microcontroller</strong> manages the low-level motion control, including step timing, acceleration ramps, and limit switches. It also runs a calibration routine every time it starts up to map out its full range of motion.</p>
+      <p>I designed the setup to be powered through a single USB hub that also charges the control tablet, keeping the whole workstation tidy and cable-free.</p>
+    </div>
+
+    <h2>The control app</h2>
+
+    <p>The Android tablet runs a custom app I built from scratch in <strong>Flutter</strong>, which talks to the ESP32 over USB serial. The app includes four distinct modes:</p>
+
+    <p><strong>Freehand drawing:</strong> You can draw directly on the tablet screen with your finger. To keep the plotter from stuttering, the app uses the Ramer-Douglas-Peucker algorithm to simplify your stroke, removing unnecessary points while keeping the original shape intact.</p>
+
+    <p><strong>Mandalas:</strong> A collection of mathematical patterns like Archimedean spirals, spirographs, rose curves, and Lissajous figures. You can enable specific patterns and reorder them using a drag-and-drop interface.</p>
+
+    <p><strong>Auto mode:</strong> The plotter becomes autonomous in this mode, cycling through your active mandalas and drawing them one after another without needing any extra input.</p>
+
+    <p><strong>Developer console:</strong> A real-time serial monitor that shows every bit of communication between the tablet and the ESP32, which was essential for debugging the protocol.</p>
+
+    <h2>System architecture</h2>
+
+    <p>To keep the movement fluid, I designed a streaming protocol where the tablet sends coordinates one by one. The ESP32 maintains a motion queue of up to 30 commands and sends a <code>next</code> signal only when it has room for more. This prevents the serial buffer from overflowing while ensuring the motors never have to wait for instructions.</p>
+
+    <p>The ESP32 takes advantage of its dual-core architecture here. It runs two parallel tasks: one core handles the serial communication and command parsing, while the other is dedicated purely to executing the motion. This way, receiving new data never interferes with the smoothness of the motors.</p>
+
+    <h2>Video</h2>
+
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    </div>
+
+    <h2>Credits and files</h2>
+
+    <p>The XY axis mechanics are based on a design from Thingiverse, but the table, the enclosure, and all other mechanical parts are original designs. You can check out the base axis design <a href="https://www.thingiverse.com/thing:4579436" target="_blank" style="color:var(--accent);">at this link</a>.</p>
+
+    <details>
+    <summary>
+      <span>GLB files: original 3D printed parts</span>
+    </summary>
+    <div class="details-content">
+      <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">Includes the table, enclosure, and custom mechanical mounts. Note that the base XY axis is not included here.</p>
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <model-viewer
+        src="../files/sand_plotter.glb"
+        alt="Sand plotter 3D model"
+        camera-controls
+        auto-rotate
+        style="width:100%; height:320px; background:var(--bg3); border-radius:2px; margin-bottom:1rem;">
+      </model-viewer>
+      <a href="../files/sand_plotter.glb" class="download-btn" download>download GLB →</a>
+    </div>
+  </details>
+
+    <details>
+      <summary>
+        <span>Source code</span>
+      </summary>
+      <div class="details-content">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">Full source code for the ESP32 firmware and the Flutter mobile app.</p>
+        <a href="https://github.com/petdecul" target="_blank" class="download-btn">view on GitHub →</a>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

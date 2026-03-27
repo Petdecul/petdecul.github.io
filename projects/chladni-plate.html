@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chladni Plate — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">electronics · acoustics · physics</div>
+    <h1>Chladni plate</h1>
+    <p class="lead">A motorized device that turns sound into visual art. By vibrating a thin aluminium sheet at specific frequencies, sand self-organizes into geometric patterns that reveal the standing waves hidden inside the material.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>How it works</h2>
+
+    <div class="clearfix">
+      <img src="../images/chladni_plate.jpg" alt="Chladni plate" class="float-right">
+      <p>When a surface vibrates, some areas move violently while others stay almost perfectly still. These still zones are known as <strong>nodal lines</strong>. If you scatter sand across the plate, the vibrating sections kick the grains away until they eventually settle along these nodal lines. The result is a physical map of the sound wave geometry.</p>
+      <p>The patterns change completely depending on the frequency. Every note has its own unique fingerprint, and even a tiny adjustment can shift the sand from one complex shape to another. That is the best part of Chladni figures: a simple flat plate can produce dozens of different designs just by turning a knob.</p>
+    </div>
+
+    <p>The hardware consists of a <strong>1mm aluminium sheet</strong>, chosen because it is thin enough to vibrate clearly across a wide range of frequencies. A speaker mounted underneath drives the movement, powered by a dedicated amplifier. I added two potentiometers to the setup: one for volume (gain) and one for frequency control.</p>
+
+    <h2>The electronics</h2>
+
+    <p>I used an <strong>ESP32</strong> to generate the frequencies using its internal DAC. The firmware creates a sine wave through a 256-point lookup table, which is updated by a hardware timer running at 40 kHz. This ensures the output stays smooth and stable without putting any heavy load on the main code loop.</p>
+
+    <p>One interesting challenge I ran into was that the ESP32's WiFi and Bluetooth radios were leaking audible interference into the signal. It created a constant clicking noise that ruined the effect. To fix this, I set the firmware to explicitly kill both radios at startup, which cleared up the signal immediately.</p>
+
+    <p>I also implemented a hysteresis filter for the potentiometer readings. This prevents the frequency from flickering or jumping around due to electrical noise. The value only updates when the physical turn exceeds a specific threshold, making the controls feel solid and predictable.</p>
+
+    <p>The entire mechanical structure and the enclosure are original designs that I modeled and 3D-printed from scratch.</p>
+
+    <h2>Video</h2>
+
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    </div>
+
+    <h2>Files</h2>
+
+    <details>
+    <summary>
+      <span>GLB files: 3D printed parts</span>
+    </summary>
+    <div class="details-content">
+      <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">The enclosure and mounting components, designed and printed in PLA.</p>
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <model-viewer
+        src="../files/Chladni.glb"
+        alt="Chladni plate 3D model"
+        camera-controls
+        auto-rotate
+        style="width:100%; height:320px; background:var(--bg3); border-radius:2px; margin-bottom:1rem;">
+      </model-viewer>
+      <a href="../files/Chladni.glb" class="download-btn" download>download GLB →</a>
+    </div>
+  </details>
+
+    <details>
+      <summary>
+        <span>Source code</span>
+      </summary>
+      <div class="details-content">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">ESP32 firmware featuring the sine wave generator, hardware timer, and pot control.</p>
+        <a href="https://github.com/petdecul" target="_blank" class="download-btn">view on GitHub →</a>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

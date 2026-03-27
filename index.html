@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-name">
+          <span class="name-accent">Arnau</span><br>
+          <span class="name-main">Mussons</span><br>
+          <span class="name-accent">Argemí</span>
+        </h1>
+        <p class="hero-sub">Working at the intersection of neuroscience, electrophysiology, and biological signal processing. I build things when the tools I need don't exist yet.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">see projects</a>
+          <a href="cv.pdf" class="btn btn-ghost">download cv</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="images/arnau.png" alt="Arnau Mussons Argemí">
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">about</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a Catalan biologist currently completing a Master's in Translational Medicine. From an early age I have been drawn to science. My brother was born with a complex set of conditions, among them deafness, and the day someone explained to me how a cochlear implant works, something clicked. I was immediately fascinated by how science not only solves puzzles but can genuinely improve people's lives.</p>
+        <p>Beyond my academic background, I have always enjoyed building things. I started developing software to solve day-to-day problems or to learn something new, then wanted to take that into the physical world. Getting a 3D printer opened the door to electronics, mechanical design, and hands-on experimentation.</p>
+        <p>That curiosity is what brought me to brain-computer interfaces: a field where neuroscience, engineering, and AI converge, and where the impact on people's lives is tangible.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="stat-row"><span class="stat-label">based in</span><span class="stat-val">Catalonia, Spain</span></div>
+        <div class="stat-row" style="display: flex; align-items: center;">
+          <span class="stat-label">education</span>
+          <span class="stat-val" style="text-align: right; flex-grow: 1;">
+            <div>BSc Biology, UAB</div>
+            <div>MSc Translational Medicine, UB</div>
+          </span>
+        </div>
+        <div class="stat-row"><span class="stat-label">current lab</span><span class="stat-val">Elena Martín García / PRBB</span></div>
+        <div class="stat-row"><span class="stat-label">english</span><span class="stat-val">Cambridge C1 (grade B)</span></div>
+        <div class="stat-row"><span class="stat-label">github</span><span class="stat-val"><a href="https://github.com/petdecul" target="_blank">petdecul</a></span></div>
+        <div class="stat-row"><span class="stat-label">email</span><span class="stat-val"><a href="mailto:arnau@mussons.cat">arnau@mussons.cat</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">projects</div>
+    <div class="projects-grid">
+
+      <a href="projects/plant-biochip.html" class="project-card featured">
+        <div>
+          <div class="project-tag">hardware · AI · ongoing</div>
+          <div class="project-name">Plant electrophysiology biochip</div>
+          <p class="project-desc">A biochip to record electrical signals from plants combined with a specialized AI model to interpret the data in real time. Goal: predict nutrient deficiencies before they're visible. Current main project.</p>
+          <span class="project-more">read more →</span>
+        </div>
+        <div class="project-image-placeholder">photo coming soon</div>
+      </a>
+
+      <a href="projects/magnetic-levitator.html" class="project-card">
+        <div class="project-tag">electronics · physics</div>
+        <div class="project-name">Magnetic levitator</div>
+        <p class="project-desc">Electromagnetic levitation with closed-loop PID control. Designed, built, and 3D-printed from scratch — including the electromagnet.</p>
+        <img src="images/levitator.jpg" alt="magnetic levitator" style="width:100%; height:auto; border-radius:2px; margin-top:1rem;">
+        <span class="project-more">read more →</span>
+      </a>
+
+      <a href="projects/cloud-chamber.html" class="project-card">
+        <div class="project-tag">electronics · physics</div>
+        <div class="project-name">Cloud chamber</div>
+        <p class="project-desc">Continuous diffusion cloud chamber for visualizing ionizing radiation particle tracks. Custom electronics and thermal management.</p>
+        <img src="images/cloud_chamber.jpg" alt="cloud chamber" style="width:100%; height:auto; border-radius:2px; margin-top:1rem;">
+        <span class="project-more">read more →</span>
+      </a>
+
+      <a href="projects/chladni-plate.html" class="project-card">
+        <div class="project-tag">electronics · acoustics</div>
+        <div class="project-name">Chladni plate</div>
+        <p class="project-desc">Motorized Chladni plate for visualizing standing wave patterns. Frequency-controlled driver with adjustable resonance.</p>
+        <img src="images/chladni_plate.jpg" alt="chladni plate" style="width:100%; height:auto; border-radius:2px; margin-top:1rem;">
+        <span class="project-more">read more →</span>
+      </a>
+
+      <a href="projects/sand-plotter.html" class="project-card">
+        <div class="project-tag">electronics · mechanics</div>
+        <div class="project-name">Sand plotter</div>
+        <p class="project-desc">CNC-based sand plotter for geometric and algorithmic patterns. Full mechanical design, 3D-printed, custom firmware.</p>
+        <img src="images/sand_plotter.jpg" alt="sand plotter" style="width:100%; height:auto; border-radius:2px; margin-top:1rem;">
+        <span class="project-more">read more →</span>
+      </a>
+
+      <a href="projects/brm.html" class="project-card">
+      <div class="project-tag">software · python</div>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <img src="images/BRM_no_fondo.png" alt="BRM logo" style="width:32px; height:32px; object-fit:contain;">
+        <div class="project-name" style="margin-bottom:0;">BRM</div>
+      </div>
+      <p class="project-desc">Bibliographic Reference Manager — built because the existing tools didn't work the way I needed.</p>
+      <span class="project-more">read more →</span>
+    </a>
+
+    <a href="projects/cct.html" class="project-card">
+      <div class="project-tag">software · game</div>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <img src="images/blackjack.png" alt="CCT logo" style="width:32px; height:32px; object-fit:contain;">
+        <div class="project-name" style="margin-bottom:0;">CCT — Card Counter Trainer</div>
+      </div>
+      <p class="project-desc">Interactive trainer for learning card counting in blackjack. Built as a challenge to learn software development and game logic.</p>
+      <span class="project-more">read more →</span>
+    </a>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

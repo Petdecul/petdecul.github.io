@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Chamber — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">electronics · physics</div>
+    <h1>Cloud chamber</h1>
+    <p class="lead">A continuous diffusion cloud chamber that makes ionizing radiation visible to the naked eye. I built this from scratch using a cascaded Peltier module, a CPU heatsink, and a piezoelectric ion cleaner salvaged from a kitchen lighter.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>How it works</h2>
+
+    <div class="clearfix">
+      <img src="../images/cloud_chamber.jpg" alt="Cloud chamber" class="float-right">
+      <p>A cloud chamber works by creating a layer of supersaturated isopropyl alcohol vapor just above a freezing surface. In this specific zone, the air is so packed with vapor that even a tiny disturbance triggers instant condensation. Ionizing radiation provides exactly that kind of disturbance.</p>
+      <p>When a charged particle passes through, like an alpha particle from natural decay or a cosmic ray muon, it knocks electrons off the air molecules in its path. These ions act as tiny seeds for the alcohol vapor to condense around. The result is a visible white trail that looks exactly like the contrails left by high-altitude aircraft.</p>
+      <p>The secret is maintaining a massive temperature difference. The top of the chamber stays warm so the alcohol can evaporate from a felt pad, while the bottom is kept extremely cold. This gradient is what creates the sensitive supersaturation layer where the magic happens.</p>
+    </div>
+
+    <h2>Key components</h2>
+
+    <p>To get the base cold enough, I used a <strong>cascaded TEC2 Peltier module</strong>. This is essentially two Peltier stages stacked together. While a single stage usually can't reach the necessary temperatures, cascading them allows the cold side to drop well below -30°C, which is the sweet spot for reliable particle tracks.</p>
+
+    <p>I mounted a high performance <strong>CPU heatsink</strong> on the hot side to keep things stable. It is the same kind of cooling hardware you would find in a gaming PC, and it works perfectly for managing the thermal load here.</p>
+
+    <p>I also ran into a common issue: ambient ions in the air can create "fog" that hides the clean tracks. My solution was to build a <strong>piezoelectric high-voltage generator</strong> using the igniter from a kitchen lighter. By connecting it to an aluminium foil mesh, I created a weak electric field that sweeps away background ions and keeps the sensitive layer clear for actual radiation events.</p>
+    
+    <p>The power delivery is simple. I run 12V directly to the fan and the Peltier module, while a buck converter steps that down to 5V to power the LED strip that illuminates the chamber from the sides.</p>
+    
+    <h2>Video</h2>
+
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/YyA5f2c9EVg" allowfullscreen></iframe>
+    </div>
+
+    <h2>Files</h2>
+
+    <details>
+    <summary>
+      <span>GLB files: 3D printed parts</span>
+    </summary>
+    <div class="details-content">
+      <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">The enclosure and various mounting brackets, designed and printed in PLA.</p>
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <model-viewer
+        src="../files/cloud_chamber.glb"
+        alt="Cloud chamber 3D model"
+        camera-controls
+        auto-rotate
+        style="width:100%; height:320px; background:var(--bg3); border-radius:2px; margin-bottom:1rem;">
+      </model-viewer>
+      <a href="../files/cloud_chamber.glb" class="download-btn" download>download GLB →</a>
+    </div>
+  </details>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

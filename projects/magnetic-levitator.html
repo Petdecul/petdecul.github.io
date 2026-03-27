@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magnetic Levitator — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">electronics · physics</div>
+    <h1>Magnetic levitator</h1>
+    <p class="lead">A fully analog magnetic levitation system built from scratch.</p>
+    <p class="lead"> My first physical project.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>How it works</h2>
+
+    <div class="clearfix">
+      <img src="../images/electroiman.jpg" alt="Hand-wound electromagnet" class="float-right">
+      <p>A magnetic levitator works by continuously adjusting the strength of an electromagnet based on the distance of the object you want to levitate. The object needs a permanent magnet attached to it.</p>
+      <p>The key component is a <strong>Hall effect sensor</strong>, which detects magnetic fields. When the permanent magnet is close to the sensor, the electromagnet receives less power. When it moves away, the electromagnet pulls harder.</p>
+      <p>This creates a self-regulating feedback loop: the object starts falling, the electromagnet pulls it back up, it gets too close, the electromagnet weakens, it falls again. This constant cycle is what keeps the object suspended in mid-air.</p>
+    </div>
+    <img src="../images/levitator.jpg" alt="Magnetic levitator" class="float-right">
+
+    <p>What makes this circuit elegant is its simplicity: there is no microcontroller involved. The entire control loop is handled by a single <strong>N-channel MOSFET</strong> driven directly by the Hall sensor output. The sensor voltage rises and falls with the magnet's position, and that signal alone is enough to modulate the current through the coil in real time. A flyback diode protects the circuit from voltage spikes when the electromagnet switches off.</p>
+
+    <!-- Reemplaza con tu foto del levitador completo -->
+
+    <p>This was my first physical electronics project. I built everything from the ground up: the <strong>coil winder</strong> to wrap the copper wire, the electromagnet itself, and all the mechanical and structural parts. The 3D design was also done from scratch, learning everything along the way.</p>
+
+    <h2>Video</h2>
+
+    <div class="video-wrapper">
+      <!-- Reemplaza YOUR_VIDEO_ID con el ID de tu video de YouTube -->
+      <iframe src="https://www.youtube.com/embed/mxG4TLZbheA" allowfullscreen></iframe>
+    </div>
+
+    <h2>Files</h2>
+
+    <details>
+    <summary>
+        <span>GLB files — 3D printed parts</span>
+    </summary>
+    <div class="details-content">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:1rem;">All structural parts were designed and printed in PLA. Includes the main housing, coil former, and mounting bracket.</p>
+        
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <model-viewer
+        src="../files/levitator.glb"
+        alt="Magnetic levitator 3D model"
+        camera-controls
+        auto-rotate
+        style="width:100%; height:320px; background:var(--bg3); border-radius:2px; margin-bottom:1rem;"
+        skybox-color="#FF0000">
+      </model-viewer>
+
+        <a href="../files/levitator.glb" class="download-btn" download>download GLB →</a>
+    </div>
+    </details>  
+
+    <details>
+      <summary>
+        <span>Circuit diagram</span>
+      </summary>
+      <div class="details-content">
+        <img src="../images/levitator-circuit.png" alt="Magnetic levitator circuit diagram">
+        <a href="../images/levitator-circuit.png" class="download-btn" download>download diagram →</a>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

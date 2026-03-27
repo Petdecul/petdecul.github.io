@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCT — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">software · python · mathematics</div>
+    <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:1rem;">
+      <img src="../images/blackjack.png" alt="CCT logo" style="width:80px; height:80px; object-fit:contain;">
+      <h1 style="margin-bottom:0;">CCT: Card Counting Trainer</h1>
+    </div>
+    <p class="lead">A complete training suite for card counting that started as a personal challenge. It is a mix of mathematical curiosity, a programming exercise, and a genuine fascination with card games.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>Why I built it</h2>
+
+    <p>Card counting is not some magic trick. It is pure applied statistics. I was fascinated by the idea that you can get a real edge over the house just by tracking the deck composition. When I saw that professional courses were charging around 400 euros to teach this, I decided to save the money and build my own tool instead. That choice turned into a much bigger project than I initially planned.</p>
+
+    <p>CCT became my first serious dive into programming. I used it to properly learn Python while exploring concepts like probability, expected value, and the Kelly criterion. What started as a simple idea grew into a full training environment rather than just a basic app.</p>
+
+    <h2>What is inside</h2>
+
+    <div class="clearfix">
+      <img src="../images/captura_main.jpg" alt="CCT main screen" class="float-right">
+      <p>The app is split into four main modules. The <strong>Blackjack Table</strong> lets you play against a simulated dealer with fully customizable rules. You can adjust the number of decks, penetration, surrender options, and more. Every move you make is logged so you can analyze your play later.</p>
+      <p>The <strong>Counting Trainer</strong> runs through a shoe at whatever speed you find comfortable while tracking the running count. There is also a test mode that hides the count to see if you can keep up without help.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0;">
+      <figure style="margin:0;">
+        <img src="../images/capt_table.jpg" alt="Blackjack table" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Blackjack table with full rule configuration</figcaption>
+      </figure>
+      <figure style="margin:0;">
+        <img src="../images/captura_counter.jpg" alt="Card counting trainer" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Counting trainer with speed control and test mode</figcaption>
+      </figure>
+    </div>
+
+    <div class="clearfix">
+      <p>The <strong>Analyzer</strong> reviews every hand from your session to show you the optimal mathematical decision. It highlights any deviations from basic strategy so you know exactly where you are losing money.</p>
+      <p>The <strong>Basic Strategy table</strong> is interactive and updates automatically based on the rules you have set. It covers everything from hard and soft hands to complex pair splitting.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0;">
+      <figure style="margin:0;">
+        <img src="../images/captura_start.jpg" alt="Basic strategy table" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Interactive basic strategy table</figcaption>
+      </figure>
+      <figure style="margin:0;">
+        <img src="../images/captura_analyzer.jpg" alt="Session analyzer" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Session analyzer with per-hand decision review</figcaption>
+      </figure>
+    </div>
+
+    <h2>Calculator and Simulation</h2>
+
+    <p>The <strong>Calculator</strong> determines your expected value and risk of ruin based on your betting strategy. These are not just guesses. The results come from a database of 10 million simulated hands per rule combination that I ran before releasing the app. It tells you exactly how much bankroll you need to survive the natural variance of the game.</p>
+
+    <p>The <strong>Simulator</strong> lets you run custom simulations from scratch. Instead of using shortcuts, the engine deals and resolves every single hand individually. I chose this approach because I wanted to build the game logic myself rather than relying on basic approximations. It is perfect for testing weird rule combinations that are not in the main database.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0;">
+      <figure style="margin:0;">
+        <img src="../images/calculator_capt.jpg" alt="Betting calculator" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Calculator based on 10 million fully simulated hands per rule combination</figcaption>
+      </figure>
+      <figure style="margin:0;">
+        <img src="../images/simulator_capt.jpg" alt="Simulator" style="width:100%; height:200px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Simulator for custom game rule combinations</figcaption>
+      </figure>
+    </div>
+
+    <p>Building CCT was the project that really got me into software development. It was the spark that eventually led me toward electronics and hardware too.</p>
+
+    <h2>Download</h2>
+
+    <iframe frameborder="0" src="https://itch.io/embed/3537862" width="100%" height="167" style="border-radius:2px; max-width:552px; display:block;">
+      <a href="https://petdecul.itch.io/card-counting-trainer-cct">CCT - Card Counting Trainer by Petdecul</a>
+    </iframe>
+
+    <a href="https://github.com/Petdecul/Card-Counting-Trainer-CCTv1.0" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; margin-top:1.5rem; text-decoration:none; color:var(--muted); font-size:12px; letter-spacing:0.05em; transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      view source on GitHub
+    </a>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRM — Arnau Mussons Argemí</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">AM_</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">about</a></li>
+      <li><a href="../index.html#projects">projects</a></li>
+      <li><a href="../cv.pdf">cv</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="../index.html#projects" class="back-link">← back to projects</a>
+    <div class="project-tag">software · python</div>
+    <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:1rem;">
+      <img src="../images/BRM_no_fondo.png" alt="BRM logo" style="width:80px; height:80px; object-fit:contain;">
+      <h1 style="margin-bottom:0;">BRM</h1>
+    </div>
+    <p class="lead">A desktop tool designed to take the headache out of formatting and numbering bibliographic references in Word documents.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="project-content">
+
+    <h2>The problem</h2>
+
+    <p>When I am deep into writing a paper, I like to keep the momentum going. Instead of stopping to format every source, I just drop the DOI link directly into square brackets like <code style="color:var(--accent); font-size:12px;">[https://doi.org/10.1234/xyz]</code> and keep typing. It is a great way to stay focused, but it creates a massive chore for later.</p>
+
+    <p>The real pain starts at the end of the project. Manually going through a full paper to number every citation, checking for duplicates, and trying to get every comma right in APA style is boring and full of mistakes. I built BRM because I wanted a way to automate that entire process with a single click.</p>
+
+    <h2>What it does</h2>
+
+    <p>The workflow is simple: you drop your <code style="color:var(--accent); font-size:12px;">.docx</code> file into the app and let it do the heavy lifting. BRM scans the entire document for any DOI or URL hidden inside square brackets. It replaces those links with sequential numbers based on when they first appear, and it is smart enough to reuse the same number if you cite the same source twice. Once the scan is done, it appends a full bibliography at the end of your document. Every reference is fetched and formatted in <strong>APA style</strong> using the DOI API. If a reference cannot be found automatically, the app flags it in red so you can quickly fix it yourself.</p>
+
+    <p>BRM is flexible with formats too. It handles full <code style="color:var(--accent); font-size:12px;">https://doi.org/</code> URLs, bare DOIs like <code style="color:var(--accent); font-size:12px;">10.1234/xyz</code>, or even links with the <code style="color:var(--accent); font-size:12px;">doi:</code> prefix. It even manages regular web URLs by adding them to the list and flagging them for a final manual check.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0;">
+    <figure style="margin:0;">
+        <img src="../images/BRM_preavious.jpg" alt="Document before BRM" style="width:100%; height:280px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">Before: DOI links in square brackets</figcaption>
+    </figure>
+    <figure style="margin:0;">
+        <img src="../images/BRM_after.jpg" alt="Document after BRM" style="width:100%; height:280px; object-fit:cover; border-radius:2px; display:block;">
+        <figcaption style="font-size:11px; color:var(--muted); margin-top:0.5rem; letter-spacing:0.05em;">After: numbered citations and APA bibliography</figcaption>
+    </figure>
+    </div>
+
+    <h2>Download</h2>
+
+    <iframe frameborder="0" src="https://itch.io/embed/3558568" width="100%" height="167" style="border-radius:2px; max-width:552px; display:block;">
+      <a href="https://petdecul.itch.io/brm-bibliography-reference-manager">BRM - Bibliography Reference Manager by Petdecul</a>
+    </iframe>
+
+    <a href="https://github.com/Petdecul/BRM" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; margin-top:1.5rem; text-decoration:none; color:var(--muted); font-size:12px; letter-spacing:0.05em; transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      view source on GitHub
+    </a>
+
+  </div>
+
+  <footer>
+    <span>arnaumussons.com</span>
+    <div class="footer-links">
+      <a href="https://github.com/petdecul" target="_blank">github</a>
+      <a href="#" target="_blank">linkedin</a>
+      <a href="mailto:arnau@mussons.cat">email</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
